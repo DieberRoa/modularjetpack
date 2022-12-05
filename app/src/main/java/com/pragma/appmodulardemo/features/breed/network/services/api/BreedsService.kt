@@ -4,14 +4,13 @@ import com.pragma.appmodulardemo.features.breed.domain.models.BreedsResponse
 import com.pragma.appmodulardemo.features.breed.domain.models.Operation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Response
+import retrofit2.http.GET
 import javax.inject.Inject
 
-class BreedsService @Inject constructor(private val api: IBreedsApiClient) {
+interface BreedsService {
 
-    suspend fun getAllBreeds() : BreedsResponse {
-        return withContext(Dispatchers.IO) {
-            val response = api.getAllBreeds()
-            response.body() ?: BreedsResponse(emptyList(), Operation("",""))
-        }
-    }
+    @GET("breeds")
+    suspend fun getAllBreeds() : BreedsResponse
+
 }

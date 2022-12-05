@@ -1,6 +1,8 @@
 package com.pragma.appmodulardemo.features.breed.di
 
-import com.pragma.appmodulardemo.features.breed.network.services.api.IBreedsApiClient
+import com.pragma.appmodulardemo.features.breed.domain.repository.IBreedsRepository
+import com.pragma.appmodulardemo.features.breed.network.repository.BreedsRepository
+import com.pragma.appmodulardemo.features.breed.network.services.api.BreedsService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +15,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class BreedsNetworkModule {
 
-
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit {
@@ -23,10 +24,14 @@ class BreedsNetworkModule {
             .build()
     }
 
-    @Singleton
     @Provides
-    fun provideBreedsApiClient(retrofit: Retrofit): IBreedsApiClient {
-        return retrofit.create(IBreedsApiClient::class.java)
-    }
+    fun provideBreedsService(
+        retrofit: Retrofit
+    ): BreedsService = retrofit.create(BreedsService::class.java)
+
+    @Provides
+    fun provideBreedsRepository(
+        breedsService: BreedsService
+    ): IBreedsRepository = BreedsRepository(breedsService = breedsService)
 
 }

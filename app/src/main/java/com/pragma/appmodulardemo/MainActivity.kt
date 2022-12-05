@@ -10,7 +10,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.pragma.appmodulardemo.features.breed.utils.Route
 import com.pragma.appmodulardemo.ui.theme.AppmodulardemoTheme
+import com.pragma.democatbreed.features.breeds.fragment.breed.BreedsFragment
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +37,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = Route.BreedsList.route
+    ) {
+        composable(route = Route.BreedsList.route) {
+            BreedsFragment()
+        }
+    }
 }
 
 @Preview(showBackground = true)
