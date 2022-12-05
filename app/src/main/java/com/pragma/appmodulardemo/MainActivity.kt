@@ -16,7 +16,9 @@ import androidx.navigation.compose.rememberNavController
 import com.pragma.appmodulardemo.features.breed.utils.Route
 import com.pragma.appmodulardemo.ui.theme.AppmodulardemoTheme
 import com.pragma.democatbreed.features.breeds.fragment.breed.BreedsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
