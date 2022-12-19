@@ -1,4 +1,4 @@
-package com.pragma.democatbreed.features.breeds.fragment.breed
+package com.pragma.appmodulardemo.features.breed.fragment.breed
 
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Surface

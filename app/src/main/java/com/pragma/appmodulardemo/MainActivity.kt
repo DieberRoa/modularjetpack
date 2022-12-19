@@ -15,7 +15,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.pragma.appmodulardemo.features.breed.utils.Route
 import com.pragma.appmodulardemo.ui.theme.AppmodulardemoTheme
-import com.pragma.democatbreed.features.breeds.fragment.breed.BreedsFragment
+import com.pragma.appmodulardemo.features.breed.fragment.breed.BreedsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
